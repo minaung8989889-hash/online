@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Inventory</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body class="login-page">
+    <main class="login-wrapper">
+        <h1>Login</h1>
+        <form>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+            <button type="submit">Sign in</button>
+        </form>
+    </main>
+
+    <script src="./js/components.js"></script>
+    <script src="./js/api.js"></script>
+    <script src="./js/auth.js"></script>
+    <script>
+        window.initLayout();
+        document.querySelector("form").addEventListener("submit", function (event) {
+            event.preventDefault();
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+
+            window.auth.login(email, password)
+                .then(function (data) {
+                    alert("Login successful");
+                })
+                .catch(function (error) {
+                    alert(error.detail || "Login failed");
+                });
+        });
+    </script>
+</body>
+</html>

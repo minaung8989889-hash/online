@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Inventory</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <div id="navbar"></div>
+    <div class="app-layout">
+        <div id="sidebar"></div>
+        <main class="content">
+            <section class="dashboard-container">
+                <h1>Dashboard</h1>
+                <p>Summary of tank status, alarms, and recent activity.</p>
+                <div class="dashboard-grid">
+                    <div class="dashboard-panel" id="tank-summary-panel">
+                        <h2>Tank Summary</h2>
+                        <p>Loading tank totals...</p>
+                    </div>
+                    <div class="dashboard-panel" id="status-panel">
+                        <h2>Backend Status</h2>
+                        <p>Loading API status...</p>
+                    </div>
+                    <div class="dashboard-panel" id="settings-panel">
+                        <h2>Third Party API Settings</h2>
+                        <p>Loading settings...</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <div id="footer"></div>
+
+    <script src="./js/components.js"></script>
+    <script src="./js/api.js"></script>
+    <script src="./js/dashboard.js"></script>
+    <script>
+        window.initLayout().then(function () {
+            window.dashboard.init();
+        });
+    </script>
+</body>
+</html>
